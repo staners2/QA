@@ -16,17 +16,17 @@ public class SetFiftyOnFiftyPage {
     public WebDriver addSet(WebDriver driver){
         WebElement buttonAddSet = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[1]/div/div/div/div/span"));
         buttonAddSet.click();
-        return null;
+        return driver;
     }
 
     public WebDriver addPizzaOne(WebDriver driver){
-        WebElement buttonAddPizza = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[2]/div/div/div[1]/div/span"));
+        WebElement buttonAddPizza = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[2]/div/div/div[1]/div/span"));
         buttonAddPizza.click();
         return driver;
     }
 
     public WebDriver addPizzaTwo(WebDriver driver){
-        WebElement buttonAddPizza = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[2]/div/div/div[2]/div/span"));
+        WebElement buttonAddPizza = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[2]/div/div/div[3]/div/span"));
         buttonAddPizza.click();
         return driver;
     }

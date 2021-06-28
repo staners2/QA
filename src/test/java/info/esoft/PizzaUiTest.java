@@ -95,6 +95,7 @@ public class PizzaUiTest {
         Assert.assertTrue(setPage.buttonBuyIsActive(driver));
     }
 
+    // TODO FIX
     @Test
     public void addTwoPizzaAndSetWhenPurchasedTest(){
         MainPage page = new MainPage();
@@ -109,6 +110,7 @@ public class PizzaUiTest {
         Assert.assertTrue(setPage.buttonBuyIsActive(driver));
     }
 
+    // Реализовать авторизацию с подтягиванием Cookies
     @Test
     public void removeProductFromBasket(){
         MainPage page = new MainPage();
