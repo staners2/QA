@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class MainPage {
 
+
     public WebDriver OpenSyte(WebDriver driver, String sWebSyte, boolean isAuthorize){
         // driver.manage().addCookie();
         driver.get(sWebSyte);

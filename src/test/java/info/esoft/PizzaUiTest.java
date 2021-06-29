@@ -16,7 +16,6 @@ public class PizzaUiTest {
 
     public WebDriver driver;
     public final String stringWebSyte = "https://пиццуля42.рф";
-    private WebDriver driver1;
 
     @Before
     public void Up(){
