@@ -116,7 +116,7 @@ public class IsSyteWorkedTest {
     // TODO Проверить
     @Test
     @DisplayName("Удаление всех товаров из корзины при оформлении заказа")
-    public void removedAllProductsFromBasket(){
+    public void removedAllProductsFromBasketTest(){
         MainPage mainPage = new MainPage(driver);
         mainPage = mainPage.closeModalWindow();
 
@@ -138,7 +138,7 @@ public class IsSyteWorkedTest {
     // TODO Проверить
     @Test
     @DisplayName("Добавление товара в корзину при нескольких переходах в корзину")
-    public void addProductInBasketAndExitBasket() {
+    public void addProductInBasketAndExitBasketTest() {
         MainPage mainPage = new MainPage(driver);
         mainPage = mainPage.closeModalWindow();
 
@@ -168,7 +168,7 @@ public class IsSyteWorkedTest {
     // TODO Проверить
     @Test
     @DisplayName("Удаление одного товара из корзины")
-    public void removeOneProductFromBasket() {
+    public void removeOneProductFromBasketTest() {
         MainPage mainPage = new MainPage(driver);
         mainPage = mainPage.closeModalWindow();
 
@@ -198,10 +198,84 @@ public class IsSyteWorkedTest {
 
     // TODO Проверить
     @Test
-    @DisplayName("")
-    public void test(){
+    @DisplayName("Оформление заказа с не введенными данными")
+    public void formAnOrderWithNoCorrectData(){
+        MainPage mainPage = new MainPage(driver);
+        mainPage = mainPage.closeModalWindow();
 
+        // TODO Make authorization
+
+        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+
+        fiftyPage = fiftyPage.addPizzaOne();
+        fiftyPage = fiftyPage.addPizzaTwo();
+        fiftyPage = fiftyPage.addSet();
+        fiftyPage = fiftyPage.buySet();
+
+        mainPage = fiftyPage.closeModalWindow();
+        BasketPage basketPage = mainPage.openBasket();
+
+        Assert.assertTrue(basketPage.buttonBuyOrderIsActive());
     }
+
+    // TODO Проверить
+    @Test
+    @DisplayName("Оформление заказа с корректно введенными данными")
+    public void formAnOrderWithCorrectData(){
+        MainPage mainPage = new MainPage(driver);
+        mainPage = mainPage.closeModalWindow();
+
+        // TODO Make authorization
+
+        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+
+        fiftyPage = fiftyPage.addPizzaOne();
+        fiftyPage = fiftyPage.addPizzaTwo();
+        fiftyPage = fiftyPage.addSet();
+        fiftyPage = fiftyPage.buySet();
+
+        mainPage = fiftyPage.closeModalWindow();
+        BasketPage basketPage = mainPage.openBasket();
+
+        basketPage = basketPage.sendName();
+        basketPage = basketPage.selectAddress();
+        basketPage = basketPage.sendStreet();
+        basketPage = basketPage.sendHouse();
+        basketPage = basketPage.sendAppartment();
+
+
+        Assert.assertTrue(basketPage.buttonBuyOrderIsActive());
+    }
+
+    // TODO Проверить
+    @Test
+    @DisplayName("Ввод не корректного промокода")
+    public void formAnOrderWithNoCorrectPromocode(){
+        MainPage mainPage = new MainPage(driver);
+        mainPage = mainPage.closeModalWindow();
+
+        // TODO Make authorization
+
+        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+
+        fiftyPage = fiftyPage.addPizzaOne();
+        fiftyPage = fiftyPage.addPizzaTwo();
+        fiftyPage = fiftyPage.addSet();
+        fiftyPage = fiftyPage.buySet();
+
+        mainPage = fiftyPage.closeModalWindow();
+        BasketPage basketPage = mainPage.openBasket();
+
+        basketPage = basketPage.sendName();
+        basketPage = basketPage.selectAddress();
+        basketPage = basketPage.sendStreet();
+        basketPage = basketPage.sendHouse();
+        basketPage = basketPage.sendAppartment();
+
+        Assert.assertTrue(basketPage.buttonBuyOrderIsActive());
+    }
+
+    // TODO Сделать тесты на авторизацию пользователя
 
 
     /*@Test

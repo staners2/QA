@@ -101,4 +101,8 @@ public class BasketPage {
         driver.findElement(conditionTwo).click();
         return this;
     }
+
+    public boolean buttonBuyOrderIsActive(){
+        return driver.findElement(linkBuyOrder) != null;
+    }
 }
