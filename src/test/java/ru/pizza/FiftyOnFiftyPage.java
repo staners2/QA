@@ -7,10 +7,10 @@ public class FiftyOnFiftyPage {
     private WebDriver driver;
 
     By linkCloseModalWindow = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/a");
-    By buttonSet = By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[1]/div/div/div/div/span");
-    By buttonPizzaOne = By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[2]/div/div/div[1]/div/span");
-    By buttonPizzaTwo = By.xpath("/html/body/div/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[2]/div/div/div[2]/div/span");
-    By buttonBuy = By.className("button-disabled");
+    By linkSet = By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[1]/div/div/div/div/span");
+    By linkPizzaOne = By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[2]/div/div/div[1]/div/span");
+    By linkPizzaTwo = By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div[2]/div/div/div[3]/div/span");
+    By linkBuy = By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[2]/div[2]/a");
     By textTitleSet = By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[1]/h1");
     By textSubtitleSet = By.xpath("/html/body/div[2]/div[2]/div/div/div/div/div/div/div[1]/div/div/div[1]/div[2]/div/div");
 
@@ -24,28 +24,27 @@ public class FiftyOnFiftyPage {
     }
 
     public FiftyOnFiftyPage addSet(){
-        driver.findElement(buttonSet).click();
+        driver.findElement(linkSet).click();
         return this;
     }
 
     public FiftyOnFiftyPage addPizzaOne(){
-        driver.findElement(buttonPizzaOne).click();
+        driver.findElement(linkPizzaOne).click();
         return this;
     }
 
     public FiftyOnFiftyPage addPizzaTwo(){
-        driver.findElement(buttonPizzaTwo).click();
+        driver.findElement(linkPizzaTwo).click();
         return this;
     }
 
     public FiftyOnFiftyPage buySet(){
-        driver.findElement(buttonBuy).click();
+        driver.findElement(linkBuy).click();
         return this;
     }
 
-    // TODO Переделать
     public boolean buttonBuyIsActive(){
-        return driver.findElement(buttonBuy) != null;
+        return driver.findElement(linkBuy) != null;
     }
 
     public String getTitleSet(){

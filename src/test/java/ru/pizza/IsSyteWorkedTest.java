@@ -1,5 +1,8 @@
 package ru.pizza;
 
+import com.neovisionaries.ws.client.WebSocket;
+import com.neovisionaries.ws.client.WebSocketAdapter;
+import com.neovisionaries.ws.client.WebSocketFactory;
 import com.sun.tools.javac.Main;
 import info.esoft.SetFiftyOnFiftyPage;
 import org.junit.After;
@@ -12,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class IsSyteWorkedTest {
@@ -109,7 +113,98 @@ public class IsSyteWorkedTest {
         Assert.assertTrue(fiftyPage.buttonBuyIsActive());
     }
 
+    // TODO Проверить
     @Test
+    @DisplayName("Удаление всех товаров из корзины при оформлении заказа")
+    public void removedAllProductsFromBasket(){
+        MainPage mainPage = new MainPage(driver);
+        mainPage = mainPage.closeModalWindow();
+
+        // TODO Make authorization
+
+        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+
+        fiftyPage = fiftyPage.addPizzaOne();
+        fiftyPage = fiftyPage.addPizzaTwo();
+        fiftyPage = fiftyPage.addSet();
+        fiftyPage = fiftyPage.buySet();
+
+        mainPage = fiftyPage.closeModalWindow();
+        BasketPage basketPage = mainPage.openBasket();
+        basketPage = basketPage.removeSet();
+        Assert.assertTrue(basketPage.isEqualsDescription());
+    }
+
+    // TODO Проверить
+    @Test
+    @DisplayName("Добавление товара в корзину при нескольких переходах в корзину")
+    public void addProductInBasketAndExitBasket() {
+        MainPage mainPage = new MainPage(driver);
+        mainPage = mainPage.closeModalWindow();
+
+        // TODO Make authorization
+
+        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+
+        fiftyPage = fiftyPage.addPizzaOne();
+        fiftyPage = fiftyPage.addPizzaTwo();
+        fiftyPage = fiftyPage.addSet();
+        fiftyPage = fiftyPage.buySet();
+
+        mainPage = fiftyPage.closeModalWindow();
+        BasketPage basketPage = mainPage.openBasket();
+
+        mainPage = basketPage.closeWindow();
+
+        mainPage = mainPage.addPepsi();
+        mainPage = mainPage.upCountPepsi();
+        mainPage = mainPage.closePepsiWindow();
+
+        basketPage = mainPage.openBasket();
+        String price = basketPage.getPriceOrder();
+        Assert.assertTrue(price.equals("1080"));
+    }
+
+    // TODO Проверить
+    @Test
+    @DisplayName("Удаление одного товара из корзины")
+    public void removeOneProductFromBasket() {
+        MainPage mainPage = new MainPage(driver);
+        mainPage = mainPage.closeModalWindow();
+
+        // TODO Make authorization
+
+        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+
+        fiftyPage = fiftyPage.addPizzaOne();
+        fiftyPage = fiftyPage.addPizzaTwo();
+        fiftyPage = fiftyPage.addSet();
+        fiftyPage = fiftyPage.buySet();
+
+        mainPage = fiftyPage.closeModalWindow();
+        BasketPage basketPage = mainPage.openBasket();
+
+        mainPage = basketPage.closeWindow();
+
+        mainPage = mainPage.addPepsi();
+        mainPage = mainPage.upCountPepsi();
+        mainPage = mainPage.closePepsiWindow();
+
+        basketPage = mainPage.openBasket();
+        basketPage = basketPage.removePepsi();
+        String price = basketPage.getPriceOrder();
+        Assert.assertTrue(price.equals("880"));
+    }
+
+    // TODO Проверить
+    @Test
+    @DisplayName("")
+    public void test(){
+
+    }
+
+
+    /*@Test
     public void test(){
         MainPage mainPage = new MainPage(driver);
         mainPage = mainPage.closeModalWindow();
@@ -122,5 +217,5 @@ public class IsSyteWorkedTest {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }
+    }*/
 }
