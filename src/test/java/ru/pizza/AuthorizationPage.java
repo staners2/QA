@@ -1,5 +1,8 @@
 package ru.pizza;
 
+import com.neovisionaries.ws.client.WebSocket;
+import com.neovisionaries.ws.client.WebSocketAdapter;
+import com.neovisionaries.ws.client.WebSocketFactory;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
@@ -8,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import java.io.IOException;
 
 public class AuthorizationPage {
     public WebDriver driver;
@@ -30,8 +35,8 @@ public class AuthorizationPage {
 
     public MainPage authorization(){
         sendNumber();
-        clickConditionOne();
-        clickConditionTwo();
+        acceptConditionOne();
+        acceptConditionTwo();
         submitNumber();
         String code = getCodeAuthorization();
         sendCode(code);
@@ -65,11 +70,11 @@ public class AuthorizationPage {
         driver.findElement(linkSendCode).click();
     }
 
-    private void clickConditionOne(){
+    private void acceptConditionOne(){
         driver.findElement(conditionOne).click();
     }
 
-    private void clickConditionTwo(){
+    private void acceptConditionTwo(){
         driver.findElement(conditionTwo).click();
     }
 
