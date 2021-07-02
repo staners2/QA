@@ -12,11 +12,11 @@ public class NegativeTest extends Driver {
     @Test
     @DisplayName("Стадия выбора 'Набора', выбрав только одну пиццу")
     public void addOnePizzaWhenPurchasedSetTest(){
-        MainPage mainPage = new MainPage(driver);
-        mainPage = mainPage.closeModalWindow();
-        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+        MainPage mainPage = new MainPage();
+        mainPage.closeModalWindow();
 
-        fiftyPage = fiftyPage.addPizzaOne();
+        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+        fiftyPage.addPizzaOne();
 
         Assert.assertTrue(fiftyPage.isButtonBuyActive());
     }
@@ -24,12 +24,12 @@ public class NegativeTest extends Driver {
     @Test
     @DisplayName("Стадия выбора 'Набора', выбрав только две пиццы")
     public void addTwoPizzaWhenPurchasedSetTest(){
-        MainPage mainPage = new MainPage(driver);
-        mainPage = mainPage.closeModalWindow();
-        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+        MainPage mainPage = new MainPage();
+        mainPage.closeModalWindow();
 
-        fiftyPage = fiftyPage.addPizzaOne();
-        fiftyPage = fiftyPage.addPizzaTwo();
+        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+        fiftyPage.addPizzaOne();
+        fiftyPage.addPizzaTwo();
 
         Assert.assertTrue(fiftyPage.isButtonBuyActive());
     }

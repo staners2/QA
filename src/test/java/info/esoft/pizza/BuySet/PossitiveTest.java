@@ -12,8 +12,8 @@ public class PossitiveTest extends Driver {
     @DisplayName("Совпадение информации о товаре при просмотре и приобретении")
     @Test
     public void priceEqualsWhenViewedAndPurchasedTest(){
-        MainPage mainPage = new MainPage(driver);
-        mainPage = mainPage.closeModalWindow();
+        MainPage mainPage = new MainPage();
+        mainPage.closeModalWindow();
         String titleView = mainPage.getTitleSet();
         String subtitleView = mainPage.getSubtitleSet();
 
@@ -28,13 +28,13 @@ public class PossitiveTest extends Driver {
     @Test
     @DisplayName("Стадия выбора 'Набора', выбрав только две пиццы и набор")
     public void addTwoPizzaAndSetWhenPurchasedTest(){
-        MainPage mainPage = new MainPage(driver);
-        mainPage = mainPage.closeModalWindow();
-        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+        MainPage mainPage = new MainPage();
+        mainPage.closeModalWindow();
 
-        fiftyPage = fiftyPage.addPizzaOne();
-        fiftyPage = fiftyPage.addPizzaTwo();
-        fiftyPage = fiftyPage.addSet();
+        FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
+        fiftyPage.addPizzaOne();
+        fiftyPage.addPizzaTwo();
+        fiftyPage.addSet();
 
         Assert.assertTrue(fiftyPage.isButtonBuyActive());
     }

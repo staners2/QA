@@ -3,6 +3,7 @@ package info.esoft.pizza.constants;
 public interface Const {
     interface SyteInfo{
         String TITLE_SYTE = "Доставка пиццы в Кемерово - Пиццуля";
+        String LINK_SYTE = "https://пиццуля42.рф";
     }
 
     interface Errors{

@@ -1,57 +1,57 @@
 package info.esoft.pizza.pages;
 
+import com.codeborne.selenide.SelenideElement;
+import info.esoft.pizza.constants.Const;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
 public class FiftyOnFiftyPage {
-    private WebDriver driver;
 
-    By linkCloseModalWindow = By.xpath("//a[@class='modal-dialog-close']");
-    By linkSet = By.xpath("//div[@class='constructor-step'][1] //span[@class='variant-add-button button-empty button-micro']");
-    By linkPizzaOne = By.xpath("//div[@class='constructor-step'][1] //div[1] //span[@class='variant-add-button button-empty button-micro']");
-    By linkPizzaTwo = By.xpath("//div[@class='constructor-step'][2] //div[2] //span[@class='variant-add-button button-empty button-micro']");
-    By linkBuy = By.xpath("//div[@class='product-full-cart-buy-container'] //a");
-    By textTitleSet = By.xpath("//h1[@class='product-full-cart-name']");
-    By textSubtitleSet = By.xpath("//div[@class='product-full-cart-description']");
+    SelenideElement linkCloseModalWindow = $x("//a[@class='modal-dialog-close']");
+    SelenideElement linkSet = $x("//div[@class='constructor-step'][1] //span[@class='variant-add-button button-empty button-micro']");
+    SelenideElement linkPizzaOne = $x("//div[@class='constructor-step'][1] //div[1] //span[@class='variant-add-button button-empty button-micro']");
+    SelenideElement linkPizzaTwo = $x("//div[@class='constructor-step'][2] //div[2] //span[@class='variant-add-button button-empty button-micro']");
+    SelenideElement linkBuy = $x("//div[@class='product-full-cart-buy-container'] //a");
+    SelenideElement textTitleSet = $x("//h1[@class='product-full-cart-name']");
+    SelenideElement textSubtitleSet = $x("//div[@class='product-full-cart-description']");
 
-    public FiftyOnFiftyPage(WebDriver driver) {
-        this.driver = driver;
+    public FiftyOnFiftyPage() {
+
     }
 
     public MainPage closeModalWindow(){
-        driver.findElement(linkCloseModalWindow).click();
-        return new MainPage(driver);
+        linkCloseModalWindow.click();
+        return new MainPage();
     }
 
-    public FiftyOnFiftyPage addSet(){
-        driver.findElement(linkSet).click();
-        return this;
+    public void addSet(){
+        linkSet.click();
     }
 
-    public FiftyOnFiftyPage addPizzaOne(){
-        driver.findElement(linkPizzaOne).click();
-        return this;
+    public void addPizzaOne(){
+        linkPizzaOne.click();
     }
 
-    public FiftyOnFiftyPage addPizzaTwo(){
-        driver.findElement(linkPizzaTwo).click();
-        return this;
+    public void addPizzaTwo(){
+        linkPizzaTwo.click();
     }
 
-    public FiftyOnFiftyPage buySet(){
-        driver.findElement(linkBuy).click();
-        return this;
+    public void buySet(){
+        linkBuy.click();
     }
 
     public boolean isButtonBuyActive(){
-        return !driver.findElement(linkBuy).getAttribute("class").contains("button-disabled");
+        return !linkBuy.getAttribute("class").contains(Const.ClassButton.BUTTON_DISABLED);
     }
 
     public String getTitleSet(){
-        return driver.findElement(textTitleSet).getText();
+        return textTitleSet.getText();
     }
 
     public String getSubtitleSet(){
-        return driver.findElement(textSubtitleSet).getText();
+        return textSubtitleSet.getText();
     }
 }

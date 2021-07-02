@@ -1,5 +1,6 @@
 package info.esoft.pizza.Basket;
 
+import info.esoft.pizza.constants.TestOrder;
 import info.esoft.pizza.helpers.Driver;
 import info.esoft.pizza.pages.AuthorizationPage;
 import info.esoft.pizza.pages.BasketPage;
@@ -15,22 +16,22 @@ public class PossitiveTest extends Driver {
     @Test
     @DisplayName("Удаление всех товаров из корзины при оформлении заказа")
     public void removedAllProductsFromBasketTest() throws Exception {
-        MainPage mainPage = new MainPage(driver);
-        mainPage = mainPage.closeModalWindow();
+        MainPage mainPage = new MainPage();
+        mainPage.closeModalWindow();
 
         AuthorizationPage authPage = mainPage.openAuthorizationWindow();
         mainPage = authPage.authorization();
 
         FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
 
-        fiftyPage = fiftyPage.addPizzaOne();
-        fiftyPage = fiftyPage.addPizzaTwo();
-        fiftyPage = fiftyPage.addSet();
-        fiftyPage = fiftyPage.buySet();
+        fiftyPage.addPizzaOne();
+        fiftyPage.addPizzaTwo();
+        fiftyPage.addSet();
+        fiftyPage.buySet();
 
         mainPage = fiftyPage.closeModalWindow();
         BasketPage basketPage = mainPage.openBasket();
-        basketPage = basketPage.removeSet();
+        basketPage.removeSet();
         Assert.assertTrue(basketPage.isEqualsDescription());
     }
 
@@ -38,63 +39,63 @@ public class PossitiveTest extends Driver {
     @Test
     @DisplayName("Добавление товара в корзину при нескольких переходах в корзину")
     public void addProductInBasketAndExitBasketTest() throws Exception {
-        MainPage mainPage = new MainPage(driver);
-        mainPage = mainPage.closeModalWindow();
+        MainPage mainPage = new MainPage();
+        mainPage.closeModalWindow();
 
         AuthorizationPage authPage = mainPage.openAuthorizationWindow();
         mainPage = authPage.authorization();
 
         FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
 
-        fiftyPage = fiftyPage.addPizzaOne();
-        fiftyPage = fiftyPage.addPizzaTwo();
-        fiftyPage = fiftyPage.addSet();
-        fiftyPage = fiftyPage.buySet();
+        fiftyPage.addPizzaOne();
+        fiftyPage.addPizzaTwo();
+        fiftyPage.addSet();
+        fiftyPage.buySet();
 
         mainPage = fiftyPage.closeModalWindow();
         BasketPage basketPage = mainPage.openBasket();
 
         mainPage = basketPage.closeWindow();
 
-        mainPage = mainPage.openMenuBuyPepsi();
-        mainPage = mainPage.buyPepsi();
-        mainPage = mainPage.upCountPepsi();
-        mainPage = mainPage.closePepsiWindow();
+        mainPage.openMenuBuyPepsi();
+        mainPage.buyPepsi();
+        mainPage.upCountPepsi();
+        mainPage.closePepsiWindow();
 
         basketPage = mainPage.openBasket();
         String price = basketPage.getPriceOrder();
-        Assert.assertTrue(price.equals("1060"));
+        Assert.assertTrue(price.equals(TestOrder.PRICE_ONE_SET_AND_TWO_PEPSI));
     }
 
     // TODO Проверить
     // @Test
     @DisplayName("Удаление одного товара из корзины")
     public void removeOneProductFromBasketTest() throws Exception {
-        MainPage mainPage = new MainPage(driver);
-        mainPage = mainPage.closeModalWindow();
+        MainPage mainPage = new MainPage();
+        mainPage.closeModalWindow();
 
         AuthorizationPage authPage = mainPage.openAuthorizationWindow();
         mainPage = authPage.authorization();
 
         FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
 
-        fiftyPage = fiftyPage.addPizzaOne();
-        fiftyPage = fiftyPage.addPizzaTwo();
-        fiftyPage = fiftyPage.addSet();
-        fiftyPage = fiftyPage.buySet();
+        fiftyPage.addPizzaOne();
+        fiftyPage.addPizzaTwo();
+        fiftyPage.addSet();
+        fiftyPage.buySet();
 
         mainPage = fiftyPage.closeModalWindow();
         BasketPage basketPage = mainPage.openBasket();
 
         mainPage = basketPage.closeWindow();
 
-        mainPage = mainPage.buyPepsi();
-        mainPage = mainPage.upCountPepsi();
-        mainPage = mainPage.closePepsiWindow();
+        mainPage.buyPepsi();
+        mainPage.upCountPepsi();
+        mainPage.closePepsiWindow();
 
         basketPage = mainPage.openBasket();
-        basketPage = basketPage.removePepsi();
+        basketPage.removePepsi();
         String price = basketPage.getPriceOrder();
-        Assert.assertTrue(price.equals("880"));
+        Assert.assertTrue(price.equals(TestOrder.PRICE_ONE_SET_AND_ONE_PEPSI));
     }
 }
