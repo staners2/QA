@@ -1,8 +1,8 @@
 package info.esoft.pizza.BuySet;
 
-import info.esoft.pizza.Driver;
-import info.esoft.pizza.FiftyOnFiftyPage;
-import info.esoft.pizza.MainPage;
+import info.esoft.pizza.helpers.Driver;
+import info.esoft.pizza.pages.FiftyOnFiftyPage;
+import info.esoft.pizza.pages.MainPage;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;

@@ -1,4 +1,4 @@
-package info.esoft.pizza;
+package info.esoft.pizza.helpers;
 
 import org.junit.After;
 import org.junit.Before;

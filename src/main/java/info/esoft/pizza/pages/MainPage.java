@@ -1,4 +1,4 @@
-package info.esoft.pizza;
+package info.esoft.pizza.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

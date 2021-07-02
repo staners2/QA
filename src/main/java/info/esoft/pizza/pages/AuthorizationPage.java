@@ -1,5 +1,6 @@
-package info.esoft.pizza;
+package info.esoft.pizza.pages;
 
+import info.esoft.pizza.helpers.AuthorizationClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

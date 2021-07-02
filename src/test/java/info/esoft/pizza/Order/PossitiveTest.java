@@ -1,6 +1,10 @@
 package info.esoft.pizza.Order;
 
-import info.esoft.pizza.*;
+import info.esoft.pizza.helpers.Driver;
+import info.esoft.pizza.pages.AuthorizationPage;
+import info.esoft.pizza.pages.BasketPage;
+import info.esoft.pizza.pages.FiftyOnFiftyPage;
+import info.esoft.pizza.pages.MainPage;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;

@@ -1,6 +1,10 @@
 package info.esoft.pizza.Basket;
 
-import info.esoft.pizza.*;
+import info.esoft.pizza.helpers.Driver;
+import info.esoft.pizza.pages.AuthorizationPage;
+import info.esoft.pizza.pages.BasketPage;
+import info.esoft.pizza.pages.FiftyOnFiftyPage;
+import info.esoft.pizza.pages.MainPage;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -8,13 +12,14 @@ import org.junit.jupiter.api.DisplayName;
 public class PossitiveTest extends Driver {
 
     // TODO Проверить
-    // @Test
+    @Test
     @DisplayName("Удаление всех товаров из корзины при оформлении заказа")
-    public void removedAllProductsFromBasketTest(){
+    public void removedAllProductsFromBasketTest() throws Exception {
         MainPage mainPage = new MainPage(driver);
         mainPage = mainPage.closeModalWindow();
 
-        // TODO Make authorization
+        AuthorizationPage authPage = mainPage.openAuthorizationWindow();
+        mainPage = authPage.authorization();
 
         FiftyOnFiftyPage fiftyPage = mainPage.openFiftyOnFiftySet();
 
@@ -58,7 +63,7 @@ public class PossitiveTest extends Driver {
 
         basketPage = mainPage.openBasket();
         String price = basketPage.getPriceOrder();
-        Assert.assertTrue(price.equals("1080"));
+        Assert.assertTrue(price.equals("1060"));
     }
 
     // TODO Проверить
