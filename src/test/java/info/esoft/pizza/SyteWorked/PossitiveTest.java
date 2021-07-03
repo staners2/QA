@@ -1,6 +1,5 @@
 package info.esoft.pizza.SyteWorked;
 
-import info.esoft.pizza.constants.Const;
 import info.esoft.pizza.helpers.Driver;
 import info.esoft.pizza.pages.MainPage;
 import org.junit.Assert;

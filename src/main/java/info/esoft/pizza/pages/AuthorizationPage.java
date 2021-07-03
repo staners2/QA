@@ -1,17 +1,11 @@
 package info.esoft.pizza.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import info.esoft.pizza.constants.Const;
+import info.esoft.pizza.*;
 import info.esoft.pizza.constants.TestUser;
-import info.esoft.pizza.helpers.AuthorizationClass;
-import info.esoft.pizza.helpers.Helpers;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
 
 public class AuthorizationPage {
 
@@ -32,6 +26,7 @@ public class AuthorizationPage {
         acceptConditionTwo();
         submitNumber();
         String code = Helpers.getCodeAuthorization();
+        System.out.println("Code: " + code);
         sendCode(code);
 
         MyAccountPage accountPage = new MyAccountPage();
@@ -45,7 +40,6 @@ public class AuthorizationPage {
 
     public void sendCode (String code) throws InterruptedException {
         inputCode.sendKeys(code);
-        Thread.sleep(3000);
         linkSendCode.click();
     }
 
@@ -57,8 +51,10 @@ public class AuthorizationPage {
         conditionTwo.click();
     }
 
-    public void submitNumber(){
+    public void submitNumber() throws InterruptedException {
+        Thread.sleep(1500);
         linkSendNumber.click();
+        Thread.sleep(1500);
     }
 
     public boolean isButtonSendActive(){

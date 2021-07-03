@@ -2,7 +2,7 @@ package info.esoft.pizza.constants;
 
 public interface TestUser {
         String NAME = "test";
-        String NUMBER = "79516085864";
+        String NUMBER = "79234851589";
         String STREET = "test";
         String APPARTAMENT = "test";
         String HOUSE = "test";

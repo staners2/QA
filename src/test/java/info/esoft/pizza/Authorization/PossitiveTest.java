@@ -1,8 +1,8 @@
 package info.esoft.pizza.Authorization;
 
 import info.esoft.pizza.constants.TestUser;
-import info.esoft.pizza.pages.AuthorizationPage;
 import info.esoft.pizza.helpers.Driver;
+import info.esoft.pizza.pages.AuthorizationPage;
 import info.esoft.pizza.pages.MainPage;
 import org.junit.Assert;
 import org.junit.Test;

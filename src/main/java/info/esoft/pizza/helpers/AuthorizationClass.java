@@ -1,6 +1,9 @@
 package info.esoft.pizza.helpers;
 
-import com.neovisionaries.ws.client.*;
+import com.neovisionaries.ws.client.WebSocket;
+import com.neovisionaries.ws.client.WebSocketAdapter;
+import com.neovisionaries.ws.client.WebSocketExtension;
+import com.neovisionaries.ws.client.WebSocketFactory;
 import info.esoft.pizza.constants.Const;
 
 public final class AuthorizationClass implements Const {

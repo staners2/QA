@@ -2,11 +2,8 @@ package info.esoft.pizza.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import info.esoft.pizza.constants.Const;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class FiftyOnFiftyPage {
 

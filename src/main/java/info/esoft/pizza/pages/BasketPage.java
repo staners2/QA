@@ -2,12 +2,9 @@ package info.esoft.pizza.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import info.esoft.pizza.constants.Const;
-import info.esoft.pizza.constants.TestUser;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class BasketPage {
 

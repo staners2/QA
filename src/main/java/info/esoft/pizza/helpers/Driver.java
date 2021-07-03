@@ -1,6 +1,5 @@
 package info.esoft.pizza.helpers;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import info.esoft.pizza.constants.Const;
 import org.junit.After;
@@ -9,10 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
 
 import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class Driver implements Const {
 
