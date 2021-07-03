@@ -1,9 +1,12 @@
-package info.esoft.pizza;
+package info.esoft.pizza.helpers;
 
-import com.neovisionaries.ws.client.*;
+import com.neovisionaries.ws.client.WebSocket;
+import com.neovisionaries.ws.client.WebSocketAdapter;
+import com.neovisionaries.ws.client.WebSocketExtension;
+import com.neovisionaries.ws.client.WebSocketFactory;
+import info.esoft.pizza.constants.Const;
 
-public final class AuthorizationClass {
-    private static final String SERVER = "wss://stream.pushbullet.com/websocket/o.Z77alssDKwkTsgyTpRr6q6EoOJIgSECm";
+public final class AuthorizationClass implements Const {
 
     //The timeout value in milliseconds for socket connection.
     private static final int TIMEOUT = 5000;
@@ -27,8 +30,8 @@ public final class AuthorizationClass {
     private static void connect() throws Exception
     {
         ws = new WebSocketFactory()
-                .setConnectionTimeout(TIMEOUT)
-                .createSocket(SERVER)
+                .setConnectionTimeout(ServiceSmsCode.TIMEOUT)
+                .createSocket(ServiceSmsCode.SYTE_GET_SMS_CODE)
                 .addListener(new WebSocketAdapter() {
                     // A text message arrived from the server.
                     public void onTextMessage(WebSocket websocket, String message) {
