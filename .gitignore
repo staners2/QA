@@ -1,0 +1,9 @@
+.idea
+target
+build
+.DS_Store
+AuthorizationPage.java
+BasketPage.java
+FiftyOnFiftyPage.java
+IsSyteWorkedTest.java
+MainPage.java
